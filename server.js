@@ -1,25 +1,19 @@
 import express from 'express';
 import dotenv from 'dotenv';
-import stripe from 'stripe';
+import stripeLib from 'stripe';
 import cors from 'cors';
 
-
-const port = process.env.PORT || 3000;  // Usar a variável PORT ou 3000 localmente
-// Load environment variables first
+// Load environment variables
 dotenv.config();
 
-// Create the Express app
-const express = require('express');
+// Start Server
 const app = express();
+const port = process.env.PORT || 3000; 
+const stripe = stripeLib(process.env.STRIPE_API_KEY);
+const DOMAIN = process.env.DOMAIN || `http://localhost:${port}`; 
 
 // Configure CORS
-app.use(cors({
-    origin: '*',  
-}));
-
-// Start Server
-const stripeGateway = stripe(process.env.stripe_api);
-const DOMAIN = process.env.DOMAIN;
+app.use(cors({ origin: '*' }));
 
 app.use(express.static('public'));
 app.use(express.json());
@@ -57,7 +51,7 @@ app.post('/stripe-checkout', async (req, res) => {
             };
         });
 
-        const session = await stripeGateway.checkout.sessions.create({
+        const session = await stripe.checkout.sessions.create({
             payment_method_types: ['card'],
             mode: 'payment',
             success_url: `${DOMAIN}/success`,
@@ -66,15 +60,14 @@ app.post('/stripe-checkout', async (req, res) => {
             billing_address_collection: 'required',
         });
 
-        console.log('Session created successfully:', session.url); // Verifique a URL
-        res.json({ url: session.url }); // Envia a URL para o frontend
+        res.json({ url: session.url }); 
     } catch (error) {
-        console.error('Erro ao criar sessão:', error);
-        res.status(500).json({ error: 'Erro ao processar pagamento.' });
+        console.error('Error creating session:', error);
+        res.status(500).json({ error: 'Failed to create checkout session.' });
     }
 });
 
-// Listen on the correct port for Heroku
+// Start the server
 app.listen(port, () => {
     console.log(`Server is running on http://localhost:${port}`);
 });
