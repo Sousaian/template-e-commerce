@@ -2,6 +2,7 @@ import express from 'express';
 import dotenv from 'dotenv';
 import stripeLib from 'stripe';
 import cors from 'cors';
+import path from 'path';
 
 // Load environment variables
 dotenv.config();
@@ -30,7 +31,7 @@ app.get('/success', (req, res) => {
 
 // Cancel Route
 app.get('/cancel', (req, res) => {
-    res.sendFile('pages/cancel.html', { root: './public' });
+    res.sendFile(path.join(__dirname, 'public', 'cancel.html'));
 });
 
 // Checkout Route
