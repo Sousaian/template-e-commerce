@@ -3,6 +3,8 @@ import dotenv from 'dotenv';
 import stripe from 'stripe';
 import cors from 'cors';
 
+
+const port = process.env.PORT || 3000;  // Usar a variável PORT ou 3000 localmente
 // Load environment variables first
 dotenv.config();
 
@@ -72,7 +74,6 @@ app.post('/stripe-checkout', async (req, res) => {
 });
 
 // Listen on the correct port for Heroku
-const port = process.env.PORT || 3000; // Heroku sets the PORT environment variable automatically
 app.listen(port, () => {
     console.log(`Server is running on http://localhost:${port}`);
 });
