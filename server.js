@@ -26,7 +26,7 @@ app.get('/', (req, res) => {
 
 // Success Route
 app.get('/success', (req, res) => {
-    res.sendFile('success.html', { root: './public' });
+    res.sendFile(path.join(__dirname, 'public', 'success.html'));
 });
 
 // Cancel Route
