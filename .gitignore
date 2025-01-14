@@ -1,0 +1,41 @@
+# Dependências do Node.js
+node_modules/
+
+# Variáveis de ambiente
+.env
+
+# Logs e arquivos temporários
+logs/
+*.log
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+tmp/
+temp/
+
+# Cache e build
+.cache/
+dist/
+build/
+.eslintcache
+
+# Sistema operacional
+.DS_Store
+Thumbs.db
+desktop.ini
+
+# IDEs/editores
+.vscode/
+.idea/
+*.sublime-workspace
+*.sublime-project
+
+# Certificados
+*.pem
+*.key
+*.crt
+
+# Outros arquivos desnecessários
+*.bak
+*.swp
+*.tmp

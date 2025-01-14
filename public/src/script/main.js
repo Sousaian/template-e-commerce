@@ -151,20 +151,19 @@ function saveCartItems() {
         let productImgElement = cartBox.getElementsByClassName('cart-img')[0]; // Agora verificamos a imagem
 
         if (!titleElement || !priceElement || !quantityElement || !productImgElement) {
-            continue; // Se algum elemento estiver faltando, ignoramos este item
+            continue; 
         }
 
         let item = {
             title: titleElement.innerText,
             price: priceElement.innerText.replace('R$', '').replace(',', '.').trim(),
             quantity: quantityElement.value,
-            productImg: productImgElement.src // Agora estamos garantindo que productImg existe
+            productImg: productImgElement.src 
         };
 
         cartItems.push(item);
     }
 
-    // Garantir que cartItems não esteja vazio antes de salvar
     if (cartItems.length > 0) {
         localStorage.setItem('cartItems', JSON.stringify(cartItems));
     } else {
@@ -184,12 +183,12 @@ function loadCartItems() {
             let cartBoxes = document.getElementsByClassName('cart-box');
             let cartBox = cartBoxes[cartBoxes.length - 1];
             let quantityElement = cartBox.querySelector('.cart-quantity');
-            quantityElement.value = item.quantity; // Set the quantity correctly
+            quantityElement.value = item.quantity; 
         }
     }
 
     updateTotal();  
-    updateCartIcon(); // Atualiza o ícone do carrinho após carregar os itens
+    updateCartIcon(); 
 
     let cartTotal = localStorage.getItem('cartTotal');
     if (cartTotal) {
