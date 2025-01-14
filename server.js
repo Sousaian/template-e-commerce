@@ -66,7 +66,8 @@ app.post('/stripe-checkout', async (req, res) => {
         res.status(500).json({ error: 'Failed to create checkout session.' });
     }
 });
-
+console.log('Success URL:', `${DOMAIN}/success`);
+console.log('Cancel URL:', `${DOMAIN}/cancel`);
 // Start the server
 app.listen(port, () => {
     console.log(`Server is running on http://localhost:${port}`);
