@@ -50,7 +50,7 @@ function removeCartItem(event) {
     buttonClicked.parentElement.remove();
     updateTotal();
     saveCartItems();
-    updateCartIcon(); // Atualiza o ícone do carrinho
+    updateCartIcon(); 
 }
 
 // Quantity Changes
@@ -61,7 +61,7 @@ function quantityChanged(event) {
     }
     updateTotal();
     saveCartItems();
-    updateCartIcon(); // Atualiza o ícone do carrinho
+    updateCartIcon(); 
 }
 
 // Add to Cart
@@ -75,7 +75,7 @@ function addCartItem(event) {
 
     updateTotal();
     saveCartItems();
-    updateCartIcon(); // Atualiza o ícone do carrinho
+    updateCartIcon(); 
 }
 
 function addToCart(title, price, productImg) {
@@ -214,4 +214,13 @@ function updateCartIcon() {
     if (cartIcon) {
         cartIcon.setAttribute('data-quantity', quantity);
     }
+}
+
+//Clear cart after success order
+function clearCart() {
+    var cartContent = document.getElementsByClassName('cart-content')[0];
+    cartContent.innerHTML = '';
+    updateTotal();
+    localStorage.removeItem('cartItems');
+
 }

@@ -27,6 +27,7 @@ if (payBtn) {
         .then((data) => {
             if (data && data.url) {
                 location.href = data.url;
+                clearCart();
             } else {
                 console.error("Resposta inesperada da API:", data);
             }
