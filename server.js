@@ -9,6 +9,7 @@ const port = process.env.PORT || 3000;  // Usar a variável PORT ou 3000 localme
 dotenv.config();
 
 // Create the Express app
+const express = require('express');
 const app = express();
 
 // Configure CORS
