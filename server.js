@@ -2,7 +2,6 @@ import express from 'express';
 import dotenv from 'dotenv';
 import stripeLib from 'stripe';
 import cors from 'cors';
-import path from 'path';
 
 // Load environment variables
 dotenv.config();
@@ -16,6 +15,7 @@ const DOMAIN = process.env.DOMAIN || `http://localhost:${port}`;
 // Configure CORS
 app.use(cors({ origin: '*' }));
 
+// Serve static files from 'public' folder
 app.use(express.static('public'));
 app.use(express.json());
 
@@ -26,12 +26,12 @@ app.get('/', (req, res) => {
 
 // Success Route
 app.get('/success', (req, res) => {
-    res.sendFile(path.join(__dirname, 'public', 'success.html'));
+    res.sendFile('success.html', { root: './public' });
 });
 
 // Cancel Route
 app.get('/cancel', (req, res) => {
-    res.sendFile(path.join(__dirname, 'public', 'cancel.html'));
+    res.sendFile('cancel.html', { root: './public' });
 });
 
 // Checkout Route
@@ -67,8 +67,10 @@ app.post('/stripe-checkout', async (req, res) => {
         res.status(500).json({ error: 'Failed to create checkout session.' });
     }
 });
+
 console.log('Success URL:', `${DOMAIN}/success`);
 console.log('Cancel URL:', `${DOMAIN}/cancel`);
+
 // Start the server
 app.listen(port, () => {
     console.log(`Server is running on http://localhost:${port}`);
