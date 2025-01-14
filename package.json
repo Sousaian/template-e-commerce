@@ -16,7 +16,7 @@
   ],
   "author": "Ian Sousa",
   "license": "ISC",
-  "type": "module",
+  "type": "commonjs",
   "bugs": {
     "url": "https://github.com/Sousaian/template-e-commerce/issues"
   },
