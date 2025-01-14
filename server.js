@@ -30,7 +30,7 @@ app.get('/success', (req, res) => {
 
 // Cancel Route
 app.get('/cancel', (req, res) => {
-    res.sendFile('cancel.html', { root: './public' });
+    res.sendFile('pages/cancel.html', { root: './public' });
 });
 
 // Checkout Route
