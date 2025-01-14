@@ -9,7 +9,11 @@
     "type": "git",
     "url": "https://github.com/Sousaian/template-e-commerce.git"
   },
-  "keywords": ["e-commerce", "template", "nodejs"],
+  "keywords": [
+    "e-commerce",
+    "template",
+    "nodejs"
+  ],
   "author": "Ian Sousa",
   "license": "ISC",
   "type": "module",
@@ -19,6 +23,7 @@
   "homepage": "https://github.com/Sousaian/template-e-commerce#readme",
   "description": "A template for an e-commerce application using Node.js and Express.",
   "dependencies": {
+    "cors": "^2.8.5",
     "dotenv": "^16.4.7",
     "express": "^4.18.2",
     "nodemon": "^3.1.9",

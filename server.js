@@ -1,33 +1,42 @@
 import express from 'express';
 import dotenv from 'dotenv';
 import stripe from 'stripe';
+import cors from 'cors';
 
-//Load env variables
+// Load environment variables first
 dotenv.config();
 
-//Start Server
+// Create the Express app
 const app = express();
+
+// Configure CORS
+app.use(cors({
+    origin: '*',  
+}));
+
+// Start Server
+const stripeGateway = stripe(process.env.stripe_api);
+const DOMAIN = process.env.DOMAIN;
 
 app.use(express.static('public'));
 app.use(express.json());
 
-//Home Route
+// Home Route
 app.get('/', (req, res) => {
-    res.sendFile('index.html', {root: './public'});
-})
+    res.sendFile('index.html', { root: './public' });
+});
 
-//Success
+// Success Route
 app.get('/success', (req, res) => {
-    res.sendFile('success.html', {root: './public'});
-})
-//cancel
-app.get('/cancel', (req, res) => {
-    res.sendFile('cancel.html', {root: './public'});
-})
-//Checkout Route
-let stripeGateway = stripe(process.env.stripe_api);
-let DOMAIN = process.env.DOMAIN;
+    res.sendFile('success.html', { root: './public' });
+});
 
+// Cancel Route
+app.get('/cancel', (req, res) => {
+    res.sendFile('cancel.html', { root: './public' });
+});
+
+// Checkout Route
 app.post('/stripe-checkout', async (req, res) => {
     try {
         const lineItems = req.body.items.map((item) => {
@@ -62,7 +71,8 @@ app.post('/stripe-checkout', async (req, res) => {
     }
 });
 
- 
-app.listen(3000, () => {
-    console.log('Server is running on http://localhost:3000');
-})
+// Listen on the correct port for Heroku
+const port = process.env.PORT || 3000; // Heroku sets the PORT environment variable automatically
+app.listen(port, () => {
+    console.log(`Server is running on http://localhost:${port}`);
+});
