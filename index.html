@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>E-commerce Template</title>
+    <link rel="stylesheet" href="./src/styles/global.css">
+    <link rel="stylesheet" href="./src/styles/index.css">
+    <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&display=swap');
+        </style>
+</head>
+<body>
+    <!-- NavBar -->
+     <header>
+        <!-- Nav -->
+         <nav class="nav container">
+            <!-- Logo -->
+            <a href="#" class="nav__logo">E-commerce</a>
+            <!-- Cart Icon -->
+             <i class='bx bx-shopping-bag' id="cart-icon" data-quantity="0"></i>
+             <!-- Cart -->
+             <div class="cart">
+                <h2 class="cart--title">Your Cart</h2>
+                <!-- content -->
+                 <div class="cart-content">
+                    <div class="cart-box">
+                    </div>
+                 </div>
+                 <!-- total -->
+                 <div class="total">
+                    <div class="total--title">Total</div>
+                    <div class="total--price">R$0</div>
+                 </div>
+                 <!-- buy button -->
+                 <button type="button" class="btn-buy">Buy Now</button>
+                 <!-- cart close -->
+                 <div class="cart__close">
+                    <i class='bx bx-x' id="close-cart"></i>
+                 </div>
+             </div>
+         </nav>
+     </header>
+
+     <section class="shop container">
+        <h2 class="section-title">Shop Products</h2>
+        <!-- Shop content -->
+        <div class="shop-content">
+        <div class="product-box">
+           <!-- stripes need images that are online -->
+            <img src="./src/images/product1.jpeg" alt="" class="product-img">
+            <h2 class="product-title">Blue T-Shirt</h2>
+            <span class="price">R$50</span>
+            <i class="bx bx-shopping-bag add-cart"></i>
+        </div>
+        <div class="product-box">
+           <!-- stripes need images that are online -->
+            <img src="./src/images/product2.jpeg" alt="" class="product-img">
+            <h2 class="product-title">Backpack</h2>
+            <span class="price">R$80.90</span>
+            <i class="bx bx-shopping-bag add-cart"></i>
+        </div>
+        <div class="product-box">
+           <!-- stripes need images that are online -->
+            <img src="./src/images/product3.jpeg" alt="" class="product-img">
+            <h2 class="product-title">Blue Hat</h2>
+            <span class="price">R$30.50</span>
+            <i class="bx bx-shopping-bag add-cart"></i>
+        </div>
+        <div class="product-box">
+           <!-- stripes need images that are online -->
+            <img src="./src/images/product4.jpeg" alt="" class="product-img">
+            <h2 class="product-title">Goat T-shirt</h2>
+            <span class="price">R$55.50</span>
+            <i class="bx bx-shopping-bag add-cart"></i>
+        </div>
+        <div class="product-box">
+           <!-- stripes need images that are online -->
+            <img src="./src/images/product5.jpeg" alt="" class="product-img">
+            <h2 class="product-title">Hoddie</h2>
+            <span class="price">R$90.80</span>
+            <i class="bx bx-shopping-bag add-cart"></i>
+        </div>
+        <div class="product-box">
+           <!-- stripes need images that are online -->
+            <img src="./src/images/product6.jpeg" alt="" class="product-img">
+            <h2 class="product-title">earphones</h2>
+            <span class="price">R$100.20</span>
+            <i class="bx bx-shopping-bag add-cart"></i>
+        </div>
+        <div class="product-box">
+           <!-- stripes need images that are online -->
+            <img src="./src/images/product7.jpeg" alt="" class="product-img">
+            <h2 class="product-title">Water Bottle</h2>
+            <span class="price">R$20</span>
+            <i class="bx bx-shopping-bag add-cart"></i>
+        </div>
+        <div class="product-box">
+           <!-- stripes need images that are online -->
+            <img src="./src/images/product8.jpeg" alt="" class="product-img">
+            <h2 class="product-title">Shoes</h2>
+            <span class="price">R$120</span>
+            <i class="bx bx-shopping-bag add-cart"></i>
+        </div>
+        </div>
+    </section>
+    
+    <script src="/src/script/main.js"></script>
+</body>
+</html>
