@@ -9,7 +9,7 @@ if (payBtn) {
             return;
         }
 
-        fetch("/stripe-checkout", {
+        fetch("https://ecommerce-template-2b11a05be6c8.herokuapp.com/stripe-checkout", {
             method: "POST",
             headers: {
                 "Content-Type": "application/json",
