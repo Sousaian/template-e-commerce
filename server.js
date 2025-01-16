@@ -55,8 +55,8 @@ app.post('/stripe-checkout', async (req, res) => {
         const session = await stripe.checkout.sessions.create({
             payment_method_types: ['card'],
             mode: 'payment',
-            success_url: `https://ecommerce-template-2b11a05be6c8.herokuapp.com/success`,
-            cancel_url: `https://ecommerce-template-2b11a05be6c8.herokuapp.com/cancel`, 
+            success_url: `https://web-production-db7ac.up.railway.app/success`,
+            cancel_url: `https://web-production-db7ac.up.railway.app/cancel`, 
             line_items: lineItems,
             billing_address_collection: 'required',
         });

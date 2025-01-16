@@ -203,10 +203,10 @@ function updateCartIcon() {
 
     for (let i = 0; i < cartBoxes.length; i++) {
         var cartBox = cartBoxes[i];
-        var quantityElement = cartBox.querySelector('.cart-quantity'); // Get the quantity element
+        var quantityElement = cartBox.querySelector('.cart-quantity'); 
 
         if (quantityElement) {
-            quantity += parseInt(quantityElement.value) || 0;  // Garante que se value não for válido, será 0
+            quantity += parseInt(quantityElement.value) || 0;  
         }
     }
 
