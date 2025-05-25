@@ -9,7 +9,7 @@ if (payBtn) {
             return;
         }
 
-        fetch("https://web-production-db7ac.up.railway.app/stripe-checkout", {  
+        fetch(`${DOMAIN}/stripe-checkout`, {  
             method: "POST",
             headers: {
                 "Content-Type": "application/json",
